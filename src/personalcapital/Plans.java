@@ -19,7 +19,7 @@ public class Plans implements RequestHandler<Request, JSONObject> {
 	
 	public JSONObject handleRequest(Request request, Context context) {
 		
-		String url="https://f60u3265f6.execute-api.us-west-2.amazonaws.com/dev/plans/_search?q=";
+		String url="https://vpc-estesting-4uq4wt56en2swspu5a33xtol3q.us-west-2.es.amazonaws.com/plans/_search?q=";
 		if(request.planName!=null){
 			try {
 				url+="PLAN_NAME:\""+URLEncoder.encode(request.planName, "UTF-8")+"\"";
