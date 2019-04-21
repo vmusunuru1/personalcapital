@@ -1,7 +1,7 @@
 #i!/bin/sh
 
 for i in {1..229}; do
-  curl -XPOST https://vpc-estesting-4uq4wt56en2swspu5a33xtol3q.us-west-2.es.amazonaws.com/_bulk --data-binary @output${i}.json -H 'Content-Type: application/json'
+  curl -s -H "Content-Type: application/x-ndjson"  vpc-searchelastic-orarpi2udhmbvoqwta5hrn743q.us-west-2.es.amazonaws.com/_bulk --data-binary @output${i}.json -H 'Content-Type: application/json'
 
    echo $i
 done
