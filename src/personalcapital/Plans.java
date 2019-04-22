@@ -19,7 +19,11 @@ public class Plans implements RequestHandler<Request, JSONObject> {
 	
 	public JSONObject handleRequest(Request request, Context context) {
 		
+		System.out.println("sponser state:" + request.getSponsorState());
+		
 		String url="https://vpc-searchelastic-orarpi2udhmbvoqwta5hrn743q.us-west-2.es.amazonaws.com/plans/_search?q=";
+		
+		System.out.println("url is:" + url);
 		if(request.planName!=null){
 			try {
 				url+="PLAN_NAME:\""+URLEncoder.encode(request.planName, "UTF-8")+"\"";
@@ -38,8 +42,12 @@ public class Plans implements RequestHandler<Request, JSONObject> {
 	
 				}
 		if(request.sponsorState!=null){
+			
+			System.out.println("url before:" + url);
 			try {
 				url+="SPONS_DFE_MAIL_US_STATE:\""+URLEncoder.encode(request.sponsorState, "UTF-8")+"\"";
+				
+			System.out.println("url after:" + url);
 			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -56,6 +64,7 @@ public class Plans implements RequestHandler<Request, JSONObject> {
 			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 			String inputLine;
 			while((inputLine = in.readLine()) != null){
+				System.out.println(inputLine);
 				response.append(inputLine);
 			}
 			

@@ -33,18 +33,29 @@ Analysis:
  
  
 Plan Name: If you want to search for planNAME - "MECHANICAL SOLUTIONS INC 401(K) PLAN",
-Uri will be - https://t98fe87pal.execute-api.us-west-2.amazonaws.com/prd/getplans?plan-name=KS
- the encoded link will be : https://t98fe87pal.execute-api.us-west-2.amazonaws.com/prod/getPlans?plan-name=MECHANICAL%20SOLUTIONS%20INC%20401(K)%20PLAN
+Uri will be - https://5my3zfjf4c.execute-api.us-west-2.amazonaws.com/prd/getPlans?planName=MECHANICAL SOLUTIONS INC 401(K) PLAN
+ the encoded link will be : https://5my3zfjf4c.execute-api.us-west-2.amazonaws.com/prd/getPlans?planName=MECHANICAL%20SOLUTIONS%20INC%20401(K)%20PLAN
 
-e.g. https://t98fe87pal.execute-api.us-west-2.amazonaws.com/prd/getplans?plan-name= Your Plan Name
+e.g. https://5my3zfjf4c.execute-api.us-west-2.amazonaws.com/prd/getPlans?planName= Your Plan Name
 
 Sponsor Name: If you search for MECHANICAL SOLUTIONS, INC, 
-uri is -  https://t98fe87pal.execute-api.us-west-2.amazonaws.com/prod/getplans?sponsor-name=MECHANICAL%20SOLUTIONS,%20INC
+uri is -  https://5my3zfjf4c.execute-api.us-west-2.amazonaws.com/prd/getPlans?sponsorName=MECHANICAL%20SOLUTIONS,%20INC
 
-e.g. https:/t98fe87pal.execute-api.us-west-2.amazonaws.com/prd/getplans?sponsor-name= Your Sponsor Name
+e.g. https://5my3zfjf4c.execute-api.us-west-2.amazonaws.com/prd/getPlans?sponsorName= Your Sponsor Name
 
 Sponsor State:  To search for the The plans available in KS state
-Uri - https://t98fe87pal.execute-api.us-west-2.amazonaws.com/prd/getPlans?sponsor-state=KS
+Uri - https://5my3zfjf4c.execute-api.us-west-2.amazonaws.com/prd/getPlans?sponsorState=KS
 
-e.g. https://t98fe87pal.execute-api.us-west-2.amazonaws.com/prd/getPlans?sponsor-state= Your Sponsor State
+e.g. https://5my3zfjf4c.execute-api.us-west-2.amazonaws.com/prd/getPlans?sponsorState= Your Sponsor State
+
+Ex:Curl command:
+
+curl -X GET 'https://5my3zfjf4c.execute-api.us-west-2.amazonaws.com/prd/getPlans?sponsorState=KS' -H 'content-type: application/json'
+
+Query parameter mapping template:
+{
+  "planName": "$input.params('planName')",
+  "sponsorName": "$input.params('sponsorName')",
+  "sponsorState": "$input.params('sponsorState')" 
+}
  
